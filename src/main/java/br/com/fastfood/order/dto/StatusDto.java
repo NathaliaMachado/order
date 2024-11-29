@@ -1,6 +1,6 @@
-package br.com.alurafood.pedidos.dto;
+package br.com.fastfood.order.dto;
 
-import br.com.alurafood.pedidos.model.Status;
+import br.com.fastfood.order.model.Status;
 import lombok.*;
 
 @Data

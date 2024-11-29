@@ -1,5 +1,6 @@
-package br.com.alurafood.pedidos.model;
+package br.com.fastfood.order.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -23,7 +24,9 @@ public class OrderItem {
 
     private String description;
 
-    @ManyToOne(optional=false)
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    @JsonBackReference
     private Orders order;
 
 }

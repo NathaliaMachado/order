@@ -1,4 +1,4 @@
-package br.com.alurafood.pedidos.model;
+package br.com.fastfood.order.model;
 
 public enum Status {
     COMPLETED,

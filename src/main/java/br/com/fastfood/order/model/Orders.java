@@ -1,5 +1,6 @@
-package br.com.alurafood.pedidos.model;
+package br.com.fastfood.order.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,8 @@ public class Orders {
     @NotNull @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToMany(cascade=CascadeType.PERSIST, mappedBy="order")
+    @OneToMany(mappedBy="order", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<OrderItem> items = new ArrayList<>();
+
 }

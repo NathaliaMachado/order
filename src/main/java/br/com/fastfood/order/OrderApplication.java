@@ -1,4 +1,4 @@
-package br.com.alurafood.pedidos;
+package br.com.fastfood.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

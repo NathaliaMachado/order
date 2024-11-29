@@ -1,10 +1,10 @@
-package br.com.alurafood.pedidos.service;
+package br.com.fastfood.order.service;
 
-import br.com.alurafood.pedidos.dto.OrderDto;
-import br.com.alurafood.pedidos.dto.StatusDto;
-import br.com.alurafood.pedidos.model.Orders;
-import br.com.alurafood.pedidos.model.Status;
-import br.com.alurafood.pedidos.repository.OrderRepository;
+import br.com.fastfood.order.dto.OrderDto;
+import br.com.fastfood.order.dto.StatusDto;
+import br.com.fastfood.order.model.Orders;
+import br.com.fastfood.order.model.Status;
+import br.com.fastfood.order.repository.OrderRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -58,7 +58,7 @@ public class OrderService {
         }
 
         order.setStatus(dto.getStatus());
-        repository.updateStatus(dto.getStatus(), order);
+        repository.updateStatus(dto.getStatus(), order, order.getId());
         return mapper.map(order, OrderDto.class);
     }
 
@@ -71,6 +71,6 @@ public class OrderService {
         }
 
         order.setStatus(Status.PAID);
-        repository.updateStatus(Status.PAID, order);
+        repository.updateStatus(Status.PAID, order, order.getId());
     }
 }

@@ -1,11 +1,12 @@
-package br.com.alurafood.pedidos.controller;
+package br.com.fastfood.order.controller;
 
-import br.com.alurafood.pedidos.dto.OrderDto;
-import br.com.alurafood.pedidos.dto.StatusDto;
-import br.com.alurafood.pedidos.service.OrderService;
+import br.com.fastfood.order.dto.OrderDto;
+import br.com.fastfood.order.dto.StatusDto;
+import br.com.fastfood.order.service.OrderService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -53,5 +54,10 @@ public class OrderController {
             service.aproveOrderPayment(id);
 
             return ResponseEntity.ok().build();
+        }
+
+        @GetMapping("/port")
+        public String getPort(@Value("${local.server.port}") String port) {
+            return String.format("Request responded by the instance running on port %s", port);
         }
 }
